@@ -273,6 +273,7 @@ class searching
 
     function get_ids($result,$string,$get_ids)
     {   
+       
         for($i=0;$i<sizeof($get_ids);$i++)
         {   
            if(!isset($ids[$get_ids[$i]])) 
@@ -284,7 +285,7 @@ class searching
                 if(isset($result[$key][$get_ids[$i]]))
                 {   
                     $ids[$get_ids[$i]][$key][$get_ids[$i]]=$result[$key][$get_ids[$i]];
-                    $ids[$get_ids[$i]][$key]['name']=$result[$key]['name'];
+                    $ids[$get_ids[$i]][$key]['email']=$result[$key]['Email'];
                 }      
             } 
 
@@ -325,7 +326,7 @@ class searching
             $pattern='('.$value1.')';
             foreach ($string_ids as $key => $value)
             {  
-               if(preg_match_all($pattern, strtolower($string_ids[$key]['name']), $output))
+               if(preg_match_all($pattern, strtolower($string_ids[$key]['email']), $output))
                 {        
                     array_push($ids, $string_ids[$key][$type]);    
                 }
